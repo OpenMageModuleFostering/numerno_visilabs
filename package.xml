@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package>
+    <name>Numerno_Visilabs</name>
+    <version>1.0.0</version>
+    <stability>stable</stability>
+    <license uri="http://numerno.com/licenses/visilabs-ce.txt">NUMERNO VISILABS MAGENTO EXTENSION</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Tagging Module for Visilabs omni-channel automation platform.</summary>
+    <description>This extension allows you to easily tag your Magento pages according to Visilabs platform requirements.</description>
+    <notes>Version 1.0.0&#xD;
+* Initial relase&#xD;
+&#xD;
+Build Date: 2015-12-21</notes>
+    <authors><author><name>Numerno</name><user>muhammedv</user><email>muhammedv@gmail.com</email></author></authors>
+    <date>2016-04-20</date>
+    <time>16:56:41</time>
+    <contents><target name="magelocal"><dir><dir name="Numerno"><dir name="Visilabs"><dir name="Block"><dir name="Adminhtml"><dir name="System"><dir name="Config"><dir name="Form"><dir name="Field"><file name="BasketCEP.php" hash="8a9d83bc39c0ff44fb334a75226e153d"/><file name="Cart.php" hash="7891049a656eca6fb3d5aead6bf6d0ca"/><file name="Customer.php" hash="1ea302a267d174b05270b841f069fe70"/><file name="Order.php" hash="88ad089eb1b60d9f317381c442a5430b"/><file name="Product.php" hash="1d2215ee6aeadf0e5b8d3bd338675e0b"/><dir name="Renderer"><file name="CountOut.php" hash="ef926d60e83bbefa4a0f8b2cd24ea655"/><file name="CustomerAttributes.php" hash="fdfbd2c22f5721c8161e89dcad6d503e"/><file name="OrderAttributes.php" hash="b99663970855d53d163e2d66cc919f10"/><file name="QuoteAttributes.php" hash="31f391256088326dbb74817cbf4e5c6a"/><file name="VisibleProductAttributes.php" hash="513676ddb01fb2a45dd266d8429a543d"/></dir></dir></dir></dir></dir></dir><file name="Global.php" hash="b50263307028e77069e68b91314fb54a"/><file name="Tagging.php" hash="56a28e5df9942aa5763c12742bb16100"/></dir><dir name="Helper"><file name="Data.php" hash="123d2b2bfadadb1ed1fa1f322602d6e0"/></dir><dir name="Model"><file name="Observer.php" hash="46a4fac800ab06acc8dbf2156193ec16"/><dir name="System"><dir name="Config"><dir name="Backend"><file name="Attributes.php" hash="8b413e257324f60059ca2f1ae726416c"/><file name="Cache.php" hash="084bda496487098eb0acd64fd08f4fd5"/></dir><dir name="Source"><file name="Attribute.php" hash="bf271ef3acf8e20b0f49ac318ba24135"/><file name="Cid.php" hash="5b3dac17dc669f1c5eafa56c05b0eff2"/></dir></dir></dir></dir><dir name="etc"><file name="adminhtml.xml" hash="f10b28bb7dba924fa1d3096f217c00fb"/><file name="config.xml" hash="5b5c146bb8da3e26eafafecac84f471d"/><file name="system.xml" hash="c0a6b25e2559a77367178431ddfe5c73"/></dir></dir></dir></dir></target><target name="mageetc"><dir><dir name="modules"><file name="Numerno_Visilabs.xml" hash="11ee0c79022f644282ebec56183071be"/></dir></dir></target><target name="magedesign"><dir><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="visilabs.xml" hash="2e3cf416b1357a67ffc94f5e9d3b88e3"/></dir><dir name="template"><dir name="visilabs"><file name="global.phtml" hash="3263a5b34ff073d13c333c8950732c72"/><file name="tagging.phtml" hash="8d9071c3f4ba6f05df6737a90d468569"/></dir></dir></dir></dir></dir></dir></target><target name="mageskin"><dir><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="images"><dir name="visilabs"><file name="visilabs_logo.png" hash="8710ce7d462e1772c7fefc3804a7786c"/></dir></dir></dir></dir></dir></dir></target><target name="magelocale"><dir><dir name="tr_TR"><file name="Numerno_Visilabs.csv" hash="d7f049a08eb3b358d97151491d39838d"/></dir><dir name="en_US"><file name="Numerno_Visilabs.csv" hash="f466beb4c19c8d4788f994086ca3ce42"/></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.3.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

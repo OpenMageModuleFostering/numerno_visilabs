@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Numerno - Visilabs Magento Extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the NUMERNO VISILABS MAGENTO EXTENSION License, which extends the Open Software
+ * License (OSL 3.0). The Visilabs Magento Extension License is available at this URL:
+ * http://numerno.com/licenses/visilabs-ce.txt The Open Software License is available at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * DISCLAIMER
+ *
+ * By adding to, editing, or in any way modifying this code, Numerno is not held liable for any inconsistencies or
+ * abnormalities in the behaviour of this code. By adding to, editing, or in any way modifying this code, the Licensee
+ * terminates any agreement of support offered by Numerno, outlined in the provided Visilabs Magento Extension License.
+ * Upon discovery of modified code in the process of support, the Licensee is still held accountable for any and all
+ * billable time Numerno spent during the support process. Numerno does not guarantee compatibility with any other
+ * Magento extension. Numerno is not responsbile for any inconsistencies or abnormalities in the behaviour of this
+ * code if caused by other Magento extension.
+ * If you did not receive a copy of the license, please send an email to info@numerno.com or call +90-212-223-5093,
+ * so we can send you a copy immediately.
+ *
+ * @category   [Numerno]
+ * @package    [Numerno_Visilabs]
+ * @copyright  Copyright (c) 2015 Numerno Bilisim Hiz. Tic. Ltd. Sti. (http://numerno.com/)
+ * @license    http://numerno.com/licenses/visilabs-ce.txt  Numerno Visilabs Magento Extension License
+ */
+-->
+<config>
+    <modules>
+        <Numerno_Visilabs>
+            <version>1.0.0</version>
+        </Numerno_Visilabs>
+    </modules>
+    <global>
+        <blocks>
+            <visilabs>
+                <class>Numerno_Visilabs_Block</class>
+            </visilabs>
+        </blocks>
+        <helpers>
+            <visilabs>
+                <class>Numerno_Visilabs_Helper</class>
+            </visilabs>
+        </helpers>
+        <models>
+            <visilabs>
+                <class>Numerno_Visilabs_Model</class>
+            </visilabs>
+        </models>
+    </global>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Numerno_Visilabs>
+                    <files>
+                        <default>Numerno_Visilabs.csv</default>
+                    </files>
+                </Numerno_Visilabs>
+            </modules>
+        </translate>
+    </adminhtml>
+    <frontend>
+        <events>
+            <customer_login>
+                <observers>
+                    <visilabs_event_login>
+                        <type>singleton</type>
+                        <class>visilabs/observer</class>
+                        <method>eventLogin</method>
+                    </visilabs_event_login>
+                </observers>
+            </customer_login>
+            <customer_save_before>
+                <observers>
+                    <visilabs_event_signup>
+                        <type>singleton</type>
+                        <class>visilabs/observer</class>
+                        <method>eventSignup</method>
+                    </visilabs_event_signup>
+                </observers>
+            </customer_save_before>
+            <catalog_controller_product_init_after>
+                <observers>
+                    <visilabs_event_product_view>
+                        <type>singleton</type>
+                        <class>visilabs/observer</class>
+                        <method>eventProductView</method>
+                    </visilabs_event_product_view>
+                </observers>
+            </catalog_controller_product_init_after>
+            <catalog_product_save_commit_after>
+                <observers>
+                    <visilabs_cache_product_refresh>
+                        <type>singleton</type>
+                        <class>visilabs/observer</class>
+                        <method>refreshProduct</method>
+                    </visilabs_cache_product_refresh>
+                </observers>
+            </catalog_product_save_commit_after>
+            <catalog_controller_category_init_after>
+                <observers>
+                    <visilabs_event_category_view>
+                        <type>singleton</type>
+                        <class>visilabs/observer</class>
+                        <method>eventCategoryView</method>
+                    </visilabs_event_category_view>
+                </observers>
+            </catalog_controller_category_init_after>
+            <sales_quote_item_save_after>
+                <observers>
+                    <visilabs_quote_item_save>
+                        <type>singleton</type>
+                        <class>visilabs/observer</class>
+                        <method>eventBasket</method>
+                    </visilabs_quote_item_save>
+                </observers>
+            </sales_quote_item_save_after>
+            <sales_quote_item_delete_after>
+                <observers>
+                    <visilabs_quote_item_delete>
+                        <type>singleton</type>
+                        <class>visilabs/observer</class>
+                        <method>eventBasket</method>
+                    </visilabs_quote_item_delete>
+                </observers>
+            </sales_quote_item_delete_after>
+            <controller_action_predispatch_checkout_cart_index>
+                <observers>
+                    <visilabs_event_basket_view>
+                        <type>singleton</type>
+                        <class>visilabs/observer</class>
+                        <method>eventBasket</method>
+                    </visilabs_event_basket_view>
+                </observers>
+            </controller_action_predispatch_checkout_cart_index>
+            <sales_order_place_after>
+                <observers>
+                    <visilabs_event_purchase>
+                        <type>singleton</type>
+                        <class>visilabs/observer</class>
+                        <method>eventPurchase</method>
+                    </visilabs_event_purchase>
+                </observers>
+            </sales_order_place_after>
+            <controller_action_predispatch_catalogsearch_result_index>
+                <observers>
+                    <visilabs_event_onsitesearch>
+                        <type>singleton</type>
+                        <class>visilabs/observer</class>
+                        <method>eventOnSiteSearch</method>
+                    </visilabs_event_onsitesearch>
+                </observers>
+            </controller_action_predispatch_catalogsearch_result_index>
+        </events>
+        <layout>
+            <updates>
+                <visilabs>
+                    <file>visilabs.xml</file>
+                </visilabs>
+            </updates>
+        </layout>
+    </frontend>
+    <default>
+        <visilabs>
+            <general>
+                <enabled>0</enabled>
+                <use_channel>0</use_channel>
+                <use_suggest>0</use_suggest>
+                <cid>entity_id</cid>
+            </general>
+            <catalog>
+                <enabled>0</enabled>
+                <brand>manufacturer</brand>
+            </catalog>
+            <search>
+                <enabled>0</enabled>
+            </search>
+            <cart>
+                <enabled>0</enabled>
+            </cart>
+            <order>
+                <enabled>0</enabled>
+            </order>
+        </visilabs>
+    </default>
+</config>
