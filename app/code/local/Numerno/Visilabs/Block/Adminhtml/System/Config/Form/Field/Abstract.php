@@ -1,7 +1,5 @@
 <?php
 /**
- * Numerno - Visilabs Magento Extension
- *
  * NOTICE OF LICENSE
  *
  * This source file is subject to the NUMERNO VISILABS MAGENTO EXTENSION License, which extends the Open Software
@@ -23,18 +21,18 @@
  *
  * @category   [Numerno]
  * @package    [Numerno_Visilabs]
- * @copyright  Copyright (c) 2015 Numerno Bilisim Hiz. Tic. Ltd. Sti. (http://numerno.com/)
+ * @copyright  Copyright (c) 2016. Numerno Bilisim Hiz. Tic. Ltd. Sti. (http://numerno.com/)
  * @license    http://numerno.com/licenses/visilabs-ce.txt  Numerno Visilabs Magento Extension License
  */
 
 /**
- * Catalog Attributes Form Field
+ * Abstract Class for Attributes Form Field
  *
  * @category   Numerno
  * @package    Numerno_Visilabs
  * @author     Numerno Bilisim Hiz. Tic. Ltd. Sti. <info@numerno.com>
  */
-class Numerno_Visilabs_Block_Adminhtml_System_Config_Form_Field_BasketCEP
+class Numerno_Visilabs_Block_Adminhtml_System_Config_Form_Field_Abstract
     extends Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract
 {
     /**
@@ -43,40 +41,37 @@ class Numerno_Visilabs_Block_Adminhtml_System_Config_Form_Field_BasketCEP
     protected $_attributeRenderer;
 
     /**
-     * Parameter no renderer cache
+     * Custom Event Parameters renderer cache
      */
-    protected $_noRenderer;
+    protected $_cepRenderer;
+
+    /**
+     * Attribute column name
+     */
+    public $_columnName = 'Attribute';
 
     /**
      * Retrieve attribute renderer
      */
     protected function _getAttributeRenderer()
     {
-        if (!$this->_attributeRenderer) {
-            $this->_attributeRenderer = $this->getLayout()->createBlock(
-                'visilabs/adminhtml_system_config_form_field_renderer_quoteAttributes', '',
-                array('is_render_to_js_template' => true)
-            );
-            $this->_attributeRenderer->setClass('attribute_select');
-            $this->_attributeRenderer->setExtraParams('style="width:200px"');
-        }
         return $this->_attributeRenderer;
     }
 
     /**
-     * Retrieve attribute renderer
+     * Retrieve custom event parametera renderer
      */
-    protected function _getNoRenderer()
+    protected function _getCepRenderer()
     {
-        if (!$this->_noRenderer) {
-            $this->_noRenderer = $this->getLayout()->createBlock(
+        if (!$this->_cepRenderer) {
+            $this->_cepRenderer = $this->getLayout()->createBlock(
                 'visilabs/adminhtml_system_config_form_field_renderer_countOut', '',
                 array('is_render_to_js_template' => true)
             );
-            $this->_noRenderer->setClass('attribute_select');
-            $this->_noRenderer->setExtraParams('style="width:100px"');
+            $this->_cepRenderer->setClass('attribute_select');
+            $this->_cepRenderer->setExtraParams('style="width:100px"');
         }
-        return $this->_noRenderer;
+        return $this->_cepRenderer;
     }
 
     /**
@@ -86,10 +81,10 @@ class Numerno_Visilabs_Block_Adminhtml_System_Config_Form_Field_BasketCEP
     {
         $this->addColumn('param', array(
             'label' => Mage::helper('visilabs')->__('Parameter'),
-            'renderer' => $this->_getNoRenderer()
+            'renderer' => $this->_getCepRenderer()
         ));
         $this->addColumn('attribute', array(
-            'label' => Mage::helper('visilabs')->__('Cart Attribute'),
+            'label' => Mage::helper('visilabs')->__($this->_columnName),
             'renderer' => $this->_getAttributeRenderer()
         ));
 
@@ -109,7 +104,7 @@ class Numerno_Visilabs_Block_Adminhtml_System_Config_Form_Field_BasketCEP
             'selected="selected"'
         );
         $row->setData(
-            'option_extra_attr_' . $this->_getNoRenderer()->calcOptionHash($row->getData('param')),
+            'option_extra_attr_' . $this->_getCepRenderer()->calcOptionHash($row->getData('param')),
             'selected="selected"'
         );
     }

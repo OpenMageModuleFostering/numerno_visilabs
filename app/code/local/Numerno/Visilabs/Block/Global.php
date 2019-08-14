@@ -1,7 +1,5 @@
 <?php
 /**
- * Numerno - Visilabs Magento Extension
- *
  * NOTICE OF LICENSE
  *
  * This source file is subject to the NUMERNO VISILABS MAGENTO EXTENSION License, which extends the Open Software
@@ -23,7 +21,7 @@
  *
  * @category   [Numerno]
  * @package    [Numerno_Visilabs]
- * @copyright  Copyright (c) 2015 Numerno Bilisim Hiz. Tic. Ltd. Sti. (http://numerno.com/)
+ * @copyright  Copyright (c) 2016. Numerno Bilisim Hiz. Tic. Ltd. Sti. (http://numerno.com/)
  * @license    http://numerno.com/licenses/visilabs-ce.txt  Numerno Visilabs Magento Extension License
  */
 
@@ -36,10 +34,13 @@
  */
 class Numerno_Visilabs_Block_Global extends Mage_Core_Block_Template
 {
+    /**
+     *  Visilabs Static Host URL
+     */
     const VISILABS_URL = 'vsh.visilabs.net';
 
     /**
-     * Visilabs Site ID
+     * Visilabs Site Id
      *
      * @return string
      */

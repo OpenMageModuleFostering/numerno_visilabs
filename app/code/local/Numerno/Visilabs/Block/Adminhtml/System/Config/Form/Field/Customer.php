@@ -1,7 +1,5 @@
 <?php
 /**
- * Numerno - Visilabs Magento Extension
- *
  * NOTICE OF LICENSE
  *
  * This source file is subject to the NUMERNO VISILABS MAGENTO EXTENSION License, which extends the Open Software
@@ -23,7 +21,7 @@
  *
  * @category   [Numerno]
  * @package    [Numerno_Visilabs]
- * @copyright  Copyright (c) 2015 Numerno Bilisim Hiz. Tic. Ltd. Sti. (http://numerno.com/)
+ * @copyright  Copyright (c) 2016. Numerno Bilisim Hiz. Tic. Ltd. Sti. (http://numerno.com/)
  * @license    http://numerno.com/licenses/visilabs-ce.txt  Numerno Visilabs Magento Extension License
  */
 
@@ -35,17 +33,12 @@
  * @author     Numerno Bilisim Hiz. Tic. Ltd. Sti. <info@numerno.com>
  */
 class Numerno_Visilabs_Block_Adminhtml_System_Config_Form_Field_Customer
-    extends Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract
+    extends Numerno_Visilabs_Block_Adminhtml_System_Config_Form_Field_Abstract
 {
     /**
-     * Attribute renderer cache
+     * Attribute column name
      */
-    protected $_attributeRenderer;
-
-    /**
-     * Parameter no renderer cache
-     */
-    protected $_noRenderer;
+    public $_columnName = 'Customer Attribute';
 
     /**
      * Retrieve attribute renderer
@@ -60,81 +53,7 @@ class Numerno_Visilabs_Block_Adminhtml_System_Config_Form_Field_Customer
             $this->_attributeRenderer->setClass('attribute_select');
             $this->_attributeRenderer->setExtraParams('style="width:200px"');
         }
-        return $this->_attributeRenderer;
-    }
 
-    /**
-     * Retrieve attribute renderer
-     */
-    protected function _getNoRenderer()
-    {
-        if (!$this->_noRenderer) {
-            $this->_noRenderer = $this->getLayout()->createBlock(
-                'visilabs/adminhtml_system_config_form_field_renderer_countOut', '',
-                array('is_render_to_js_template' => true)
-            );
-            $this->_noRenderer->setClass('attribute_select');
-            $this->_noRenderer->setExtraParams('style="width:100px"');
-        }
-        return $this->_noRenderer;
-    }
-
-    /**
-     * Prepare to render
-     */
-    protected function _prepareToRender()
-    {
-        $this->addColumn('param', array(
-            'label' => Mage::helper('visilabs')->__('Parameter'),
-            'renderer' => $this->_getNoRenderer()
-        ));
-        $this->addColumn('attribute', array(
-            'label' => Mage::helper('visilabs')->__('Customer Attribute'),
-            'renderer' => $this->_getAttributeRenderer()
-        ));
-
-        $this->_addAfter = false;
-        $this->_addButtonLabel = Mage::helper('visilabs')->__('Add Parameter');
-    }
-
-    /**
-     * Prepare existing row data object
-     *
-     * @param Varien_Object
-     */
-    protected function _prepareArrayRow(Varien_Object $row)
-    {
-        $row->setData(
-            'option_extra_attr_' . $this->_getAttributeRenderer()->calcOptionHash($row->getData('attribute')),
-            'selected="selected"'
-        );
-        $row->setData(
-            'option_extra_attr_' . $this->_getNoRenderer()->calcOptionHash($row->getData('param')),
-            'selected="selected"'
-        );
-    }
-
-    /**
-     * Render cell template
-     *
-     * @param string
-     */
-    protected function _renderCellTemplate($columnName)
-    {
-        if (empty($this->_columns[$columnName])) {
-            throw new Exception(Mage::helper('adminhtml')->__('Wrong column name specified.'));
-        }
-        $column     = $this->_columns[$columnName];
-        $inputName  = $this->getElement()->getName() . '[#{_id}][' . $columnName . ']';
-
-        if ($column['renderer']) {
-            return $column['renderer']->setInputName($inputName)->setColumnName($columnName)->setColumn($column)
-                ->toHtml();
-        }
-
-        return '<input type="text" name="' . $inputName . '" value="#{' . $columnName . '}" ' .
-        ($column['size'] ? 'size="' . $column['size'] . '"' : '') . ' class="' .
-        (isset($column['class']) ? $column['class'] : 'input-text') . '"'.
-        (isset($column['style']) ? ' style="'.$column['style'] . '"' : '') . '/>';
+        return parent::_getAttributeRenderer();
     }
 }

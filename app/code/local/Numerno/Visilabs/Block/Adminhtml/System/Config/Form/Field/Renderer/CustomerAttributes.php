@@ -1,7 +1,5 @@
 <?php
 /**
- * Numerno - Visilabs Magento Extension
- *
  * NOTICE OF LICENSE
  *
  * This source file is subject to the NUMERNO VISILABS MAGENTO EXTENSION License, which extends the Open Software
@@ -23,12 +21,12 @@
  *
  * @category   [Numerno]
  * @package    [Numerno_Visilabs]
- * @copyright  Copyright (c) 2015 Numerno Bilisim Hiz. Tic. Ltd. Sti. (http://numerno.com/)
+ * @copyright  Copyright (c) 2016. Numerno Bilisim Hiz. Tic. Ltd. Sti. (http://numerno.com/)
  * @license    http://numerno.com/licenses/visilabs-ce.txt  Numerno Visilabs Magento Extension License
  */
 
 /**
- * Customer Attribute Form Field Renderer
+ * Customer Attributes Form Field Renderer
  *
  * @category   Numerno
  * @package    Numerno_Euromsg
@@ -55,6 +53,10 @@ class Numerno_Visilabs_Block_Adminhtml_System_Config_Form_Field_Renderer_Custome
     {
         if (is_null($this->_attributes)) {
 
+            $disabledAttributes = array('password_hash', 'default_billing', 'default_shipping', 'confirmation',
+                'rp_token', 'rp_token_created_at', 'disable_auto_group_change', 'reward_update_notification',
+                'reward_warning_notification', 'dob', 'email', 'firstname', 'lastname', 'gender');
+
             $this->_attributes = array(
                 'entity_id' => Mage::helper('visilabs')->__('Customer ID (entity_id)'),
                 '_group'     => Mage::helper('visilabs')->__('Group Name')
@@ -65,7 +67,7 @@ class Numerno_Visilabs_Block_Adminhtml_System_Config_Form_Field_Renderer_Custome
                 ->setEntityTypeFilter(Mage::getSingleton('eav/config')->getEntityType('customer'))
                 ->addFieldToFilter(
                     'attribute_code',
-                    array('nin' => array('password_hash', 'default_billing', 'default_shipping', 'confirmation', 'rp_token', 'rp_token_created_at', 'disable_auto_group_change', 'reward_update_notification', 'reward_warning_notification', 'dob', 'email', 'firstname', 'lastname', 'gender'))
+                    array('nin' => $disabledAttributes)
                 );
 
             foreach ($attributes as $attribute) {

@@ -1,7 +1,5 @@
 <?php
 /**
- * Numerno - Visilabs Magento Extension
- *
  * NOTICE OF LICENSE
  *
  * This source file is subject to the NUMERNO VISILABS MAGENTO EXTENSION License, which extends the Open Software
@@ -23,7 +21,7 @@
  *
  * @category   [Numerno]
  * @package    [Numerno_Visilabs]
- * @copyright  Copyright (c) 2015 Numerno Bilisim Hiz. Tic. Ltd. Sti. (http://numerno.com/)
+ * @copyright  Copyright (c) 2016. Numerno Bilisim Hiz. Tic. Ltd. Sti. (http://numerno.com/)
  * @license    http://numerno.com/licenses/visilabs-ce.txt  Numerno Visilabs Magento Extension License
  */
 
@@ -47,7 +45,6 @@ class Numerno_Visilabs_Model_System_Config_Source_Cid
             'entity_id' => Mage::helper('visilabs')->__('Customer Id'),
             'email'     => Mage::helper('visilabs')->__('Customer Email')
         );
-
         return $options;
     }
 
