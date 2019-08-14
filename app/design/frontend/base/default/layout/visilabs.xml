@@ -32,7 +32,7 @@
         <reference name="head" before="-">
             <block type="visilabs/global" name="visilabs.global" template="visilabs/global.phtml"/>
         </reference>
-        <reference name="after_body_start" before="-">
+        <reference name="content" before="-">
             <block type="visilabs/tagging" name="visilabs.tagging" template="visilabs/tagging.phtml" />
         </reference>
     </default>

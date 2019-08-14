@@ -30,7 +30,7 @@
 <config>
     <modules>
         <Numerno_Visilabs>
-            <version>1.0.2</version>
+            <version>1.0.4</version>
         </Numerno_Visilabs>
     </modules>
     <global>

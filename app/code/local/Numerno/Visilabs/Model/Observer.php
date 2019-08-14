@@ -115,8 +115,6 @@ class Numerno_Visilabs_Model_Observer
      */
     private function _prepareCustomerParams($customer, $eventType)
     {
-
-        Mage::log(array(get_class($customer), $customer->getData()), null, 'c.log');
         //get customer identifier
         switch ($this->_getCustomerIdentifier()) {
             case 'email':
@@ -222,6 +220,14 @@ class Numerno_Visilabs_Model_Observer
     {
         if (!Mage::helper('visilabs')->isTaggingEnabled()) {
             return $this;
+        }
+
+        $session = $this->getSession();
+        if($session->hasVisilabsParams()) {
+            $params = $session->getVisilabsParams();
+            if(isset($params['EventType']) && $params['EventType'] == 'Signup') {
+                return $this;
+            }
         }
 
         $customer = $observer->getCustomer();
