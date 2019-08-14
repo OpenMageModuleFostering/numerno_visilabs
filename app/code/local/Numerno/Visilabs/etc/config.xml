@@ -30,7 +30,7 @@
 <config>
     <modules>
         <Numerno_Visilabs>
-            <version>1.0.4</version>
+            <version>1.0.5</version>
         </Numerno_Visilabs>
     </modules>
     <global>
@@ -172,7 +172,6 @@
             </general>
             <catalog>
                 <enabled>0</enabled>
-                <brand>manufacturer</brand>
             </catalog>
             <search>
                 <enabled>0</enabled>

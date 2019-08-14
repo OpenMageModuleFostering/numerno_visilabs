@@ -29,8 +29,9 @@
 /**
  * @var $this Numerno_Visilabs_Block_Tagging
  */
-
 ?>
+<?php if ($this->isTaggingEnabled()): ?>
+<!-- Visilabs -->
 <script type="text/javascript">
 //<![CDATA[
     function OnVisilabsLoaded() {
@@ -43,5 +44,14 @@
         VL.SuggestActions();
         <?php endif; ?>
     }
-//]]>
+    var l = (location.protocol.indexOf("https")==0?"https":"http") + "://<?php echo $this->getVisilabsUrl() ?>/Visilabs.js?sid=<?php echo $this->getSiteId() ?>&oid=<?php echo $this->getOrganizationId() ?>";
+    var s = document.createElement("script");
+    if(location.href.toString().indexOf("vldebug=true") > 0){l = (location.protocol.indexOf("https")==0?"https":"http") + "://<?php echo $this->getVisilabsUrl() ?>/Visilabs_Debug.js?sid=<?php echo $this->getSiteId() ?>&oid=<?php echo $this->getOrganizationId() ?>";}
+    s.onload = function(){try{OnVisilabsLoaded();}catch(Ex){}};
+    s.type = "text/javascript";
+    s.src = l;
+    document.getElementsByTagName("head")[0].appendChild(s);
+    //]]>
 </script>
+<!-- Visilabs -->
+<?php endif; ?>

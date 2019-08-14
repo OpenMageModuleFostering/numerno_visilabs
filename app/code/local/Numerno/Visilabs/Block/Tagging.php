@@ -36,6 +36,46 @@
 class Numerno_Visilabs_Block_Tagging extends Mage_Core_Block_Template
 {
     /**
+     *  Visilabs Static Host URL
+     */
+    const VISILABS_URL = 'vsh.visilabs.net';
+
+    public function isTaggingEnabled()
+    {
+        return Mage::helper('visilabs')->isTaggingEnabled();
+    }
+
+    /**
+     * Visilabs Site Id
+     *
+     * @return string
+     */
+    public function getSiteId()
+    {
+        return Mage::getStoreConfig('visilabs/general/sid');
+    }
+
+    /**
+     * Visilabs Organization Id
+     *
+     * @return string
+     */
+    public function getOrganizationId()
+    {
+        return Mage::getStoreConfig('visilabs/general/oid');
+    }
+
+    /**
+     * Visilabs URL
+     *
+     * @return string
+     */
+    public function getVisilabsUrl()
+    {
+        return self::VISILABS_URL;
+    }
+
+    /**
      * Get current Visilabs parameters from customer session
      *
      * @return string
