@@ -29,7 +29,7 @@
 
 <layout version="1.0.0">
     <default>
-        <reference name="content" before="-">
+        <reference name="before_body_end" after="-">
             <block type="visilabs/tagging" name="visilabs.tagging" template="visilabs/tagging.phtml" />
         </reference>
     </default>
