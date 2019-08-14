@@ -41,7 +41,7 @@ class Numerno_Visilabs_Block_Tagging extends Mage_Core_Block_Template
         $session = Mage::getSingleton('core/session',  array("name" => "frontend"));
         $toHtml  = '';
 
-        if (Mage::getStoreConfigFlag("visilabs/general/use_suggest")) {
+        if (Mage::getStoreConfigFlag("visilabs/general/use_channel")) {
 
             $channel = Mage::getStoreConfig("visilabs/general/channel");
             if (!$channel) {
