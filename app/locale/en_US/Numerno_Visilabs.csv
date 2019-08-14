@@ -35,3 +35,5 @@
 "Product Attribute","Product Attribute"
 "Customer Id","Customer Id"
 "Customer Email","Customer Email"
+"Custom Cart Parameters are stored with Custom Order Parameters together. So, please do not re-use same parameter index for a different attribute in Custom Order Parameters.","Custom Cart Parameters are stored with Custom Order Parameters together. So, please do not re-use same parameter index for a different attribute in Custom Order Parameters."
+"Custom Order Parameters are stored with Custom Cart Parameters together. So, please do not re-use same parameter index for a different attribute in Custom Cart Parameters.","Custom Order Parameters are stored with Custom Cart Parameters together. So, please do not re-use same parameter index for a different attribute in Custom Cart Parameters."

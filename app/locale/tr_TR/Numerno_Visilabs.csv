@@ -35,3 +35,5 @@
 "Product Attribute","Ürün Değişkeni"
 "Customer Id","Müşteri No"
 "Customer Email","E-posta Adresi"
+"Custom Cart Parameters are stored with Custom Order Parameters together. So, please do not re-use same parameter index for a different attribute in Custom Order Parameters.","Özel Alışveriş Sepeti Parametreleri, Özel Sipariş Parametreleri ile aynı alanda saklanır. Bu nedenle Özel Alışveriş Sepeti Parametrelerinde kullandığınız bir parametre numarasını Özel Sipariş Parametrelerinde farklı bir özellik için kullanmayınız."
+"Custom Order Parameters are stored with Custom Cart Parameters together. So, please do not re-use same parameter index for a different attribute in Custom Cart Parameters.","Özel Sipariş Parametreleri, Özel Alışveriş Sepeti Parametreleri ile aynı alanda saklanır. Bu nedenle Özel Sipariş Parametrelerinde kullandığınız bir parametre numarasını Özel Alışveriş Sepeti Parametrelerinde farklı bir özellik için kullanmayınız."
