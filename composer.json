@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Numerno_Visilabs",
+    "name": "OpenMageModuleFostering\/Numerno_Visilabs",
     "type": "magento-module",
     "license": "NUMERNO-VISILABS-MAGENTO-EXTENSION",
     "homepage": "",
     "description": "Tagging Module for Visilabs omni-channel automation platform.",
     "authors": [
-    {
-        "name": "Numerno",
-        "email": "muhammedv@gmail.com"
-    }
-],
+        {
+            "name": "Numerno",
+            "email": "muhammedv@gmail.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
